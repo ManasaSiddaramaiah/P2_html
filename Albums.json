@@ -1,0 +1,38 @@
+[
+    {
+        "Album Title": "Rumours",
+        "Artist": "Fleetwood Mac",
+        "Songs": [
+            "Go Your Own Way",
+            "Dreams",
+            "Don't Stop",
+            "The Chain",
+            "You Make Loving Fun"
+        ],
+        "Release Year": 1977
+    },
+    {
+        "Album Title": "Thriller",
+        "Artist": "Michael Jackson",
+        "Songs": [
+            "Wanna Be Startin' Somethin'",
+            "Thriller",
+            "Beat It",
+            "Billie Jean",
+            "Human Nature"
+        ],
+        "Release Year": 1982
+    },
+    {
+        "Album Title": "Dark Side of the Moon",
+        "Artist": "Pink Floyd",
+        "Songs": [
+            "Speak to Me",
+            "Breathe",
+            "On the Run",
+            "Time",
+            "The Great Gig in the Sky"
+        ],
+        "Release Year": 1973
+    }
+]
