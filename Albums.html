@@ -1,35 +1,80 @@
+from bs4 import BeautifulSoup
+
+# Sample HTML content you provided
+html_content = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Album Information</title>
+  <title>Album Information</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>Album Title</th>
-            <th>Artist</th>
-            <th>Songs</th>
-            <th>Release Year</th>
-        </tr>
-        <tr>
-            <td>Rumours</td>
-            <td>Fleetwood Mac</td>
-            <td>Go Your Own Way, Dreams, Don't Stop, The Chain, You Make Loving Fun</td>
-            <td>1977</td>
-        </tr>
-        <tr>
-            <td>Thriller</td>
-            <td>Michael Jackson</td>
-            <td>Wanna Be Startin' Somethin', Thriller, Beat It, Billie Jean, Human Nature</td>
-            <td>1982</td>
-        </tr>
-        <tr>
-            <td>Dark Side of the Moon</td>
-            <td>Pink Floyd</td>
-            <td>Speak to Me, Breathe, On the Run, Time, The Great Gig in the Sky</td>
-            <td>1973</td>
-        </tr>
-    </table>
+  <table>
+    <tr>
+      <th>Album Title</th>
+      <th>Artist</th>
+      <th>Year</th>
+      <th>Tracks</th>
+    </tr>
+    <tr>
+      <td>The Dark Side of the Moon</td>
+      <td>Pink Floyd</td>
+      <td>1973</td>
+      <td>
+        <ul>
+          <li>Speak to Me</li>
+          <li>Breathe</li>
+          <li>On the Run</li>
+          <li>Time</li>
+          <li>The Great Gig in the Sky</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Thriller</td>
+      <td>Michael Jackson</td>
+      <td>1982</td>
+      <td>
+        <ul>
+          <li>Wanna Be Startin' Somethin'</li>
+          <li>Baby Be Mine</li>
+<li>The Girl Is Mine</li>
+          <li>Thriller</li>
+          <li>Beat It</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Abbey Road</td>
+      <td>The Beatles</td>
+      <td>1969</td>
+      <td>
+        <ul>
+          <li>Come Together</li>
+          <li>Something</li>
+          <li>Maxwell's Silver Hammer</li>
+          <li>Oh! Darling</li>
+          <li>Octopus's Garden</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
+"""
 
+# Create a BeautifulSoup object
+soup = BeautifulSoup(html_content, 'html.parser')
+
+# Find the table
+table = soup.find('table')
+
+# Extract data from the table
+data = []
+for row in table.find_all('tr'):
+    cols = row.find_all('td')
+    cols = [col.text.strip() for col in cols]
+    data.append(cols)
+
+# Print the extracted data
+for row in data:
+print(row)
